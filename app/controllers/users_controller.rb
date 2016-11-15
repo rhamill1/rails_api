@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:destroy, :edit, :update]
-  # before_action :authenticate
+  # before_action :authenticate, except: [:login]
 
   def index
     render :json => User.all, status: 200
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render :json => @user, status: 200
   end
 
   def update
